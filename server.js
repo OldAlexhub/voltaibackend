@@ -6,8 +6,8 @@ import path from "path";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import morgan from "morgan";
-import connectTodb from "../server/db/connectTodb.js";
 import router from "../server/routes/routes.js";
+import connectTodb from "../server/db/connectTodb.js";
 
 dotenv.config();
 
