@@ -9,7 +9,8 @@ const __dirname = path.dirname(__filename);
 // Function to trigger the R script
 const runRScript = () => {
   try {
-    const rscriptPath = "C:\\Program Files\\R\\R-4.4.1\\bin\\Rscript.exe"; // Path to Rscript
+    // Use environment variable for Rscript path, fallback to default if not set
+    const rscriptPath = process.env.RSCRIPT_PATH || "Rscript"; // Use "Rscript" if it's available in PATH
     const scriptPath = path.resolve(__dirname, "../RScript/range.R"); // Path to your R script
 
     const rProcess = spawn(rscriptPath, [scriptPath]);
@@ -35,3 +36,4 @@ const runRScript = () => {
 
 // Export the function so it can be used in other modules
 export default runRScript;
+
