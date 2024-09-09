@@ -13,7 +13,7 @@ const __dirname = path.dirname(__filename);
 // Function to trigger the R script
 const runRScript = () => {
   try {
-    const rscriptPath = process.env.RSCRIPT_PATH || "Rscript"; // Use environment variable or default to Rscript
+    const rscriptPath = "Rscript"; // No need for full path in Render environment
     const scriptPath = path.resolve(__dirname, "../RScript/range.R"); // Path to your R script
 
     const rProcess = spawn(rscriptPath, [scriptPath]);
@@ -31,6 +31,11 @@ const runRScript = () => {
     // Handle when the process closes
     rProcess.on("close", (code) => {
       console.log(`R script exited with code ${code}`);
+    });
+
+    rProcess.on("error", (err) => {
+      console.error("Failed to start Rscript subprocess.");
+      console.error(err);
     });
   } catch (error) {
     console.error(`Unexpected error: ${error.message}`);
