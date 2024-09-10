@@ -1,5 +1,4 @@
 import BatteryModel from "../models/Battries.js";
-import runRScript from "../controllers/Rscript.js"; // Import the R script trigger function
 
 const PostData = async (req, res) => {
   try {
@@ -48,9 +47,6 @@ const PostData = async (req, res) => {
 
     // Save the new data to the database
     await newData.save();
-
-    // Call the function to run the R script (range.R)
-    runRScript(); // This will trigger the R script in the background
 
     // Send response to the client
     res.status(201).json({ message: "Data submitted successfully" });
