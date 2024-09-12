@@ -7,7 +7,7 @@ const SendData = async (req, res) => {
     if (userId) {
       // Send userId to the Python Flask API
       const response = await axios.get(
-        `https://pythonapi-qkbb.onrender.com/predict/${userId}`
+        `https://pyhtonapi-qkbb.onrender.com/predict/${userId}`
       );
 
       // Handle the success response from Flask API
