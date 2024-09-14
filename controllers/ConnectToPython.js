@@ -3,7 +3,7 @@ import axios from "axios";
 const ConnectToPython = async (userId) => {
   try {
     const user = userId;
-    console.log(`userId: ${user}`);
+    // console.log(`userId: ${user}`);
 
     // Make the POST request to the Flask API
     const response = await axios.post(
