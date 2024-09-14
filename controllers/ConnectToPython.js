@@ -7,7 +7,7 @@ const ConnectToPython = async (userId) => {
 
     // Make the POST request to the Flask API
     const response = await axios.post(
-      `http://127.0.0.1:5000/predict/${user}`,
+      `https://pyevapi.onrender.com/predict/${user}`,
       {},
       {
         headers: {
