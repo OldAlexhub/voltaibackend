@@ -1,4 +1,5 @@
 import BatteryModel from "../models/Battries.js";
+import ConnectToPython from "./ConnectToPython.js";
 
 const PostData = async (req, res) => {
   try {
@@ -48,6 +49,7 @@ const PostData = async (req, res) => {
     // Save the new data to the database
     await newData.save();
 
+    await ConnectToPython(userId);
     // Send response to the client
     res.status(201).json({ message: "Data submitted successfully" });
   } catch (error) {
